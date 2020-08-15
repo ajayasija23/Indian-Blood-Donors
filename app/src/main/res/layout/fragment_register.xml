@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:background="#fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_thirty"
+            android:layout_marginTop="@dimen/dp_ten"
+            android:layout_marginBottom="@dimen/dp_ten">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
+                android:id="@+id/nameError"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/full_name"
+                    android:id="@+id/fullName"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_ten"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty"
+                app:errorEnabled="true"
+                android:id="@+id/dobEndIcon"
+                app:endIconDrawable="@drawable/ic_dob"
+                app:endIconMode="custom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Date"
+                    app:errorEnabled="true"
+                    android:id="@+id/dob"
+                    android:maxLength="10"
+                    android:inputType="date"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty"
+                android:hint="@string/select_state"
+                android:layout_marginTop="@dimen/dp_ten"
+                app:errorEnabled="true"
+                android:id="@+id/stateError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sppinerStates"
+                    android:inputType="textAutoComplete"
+                    android:imeOptions="actionNext"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty"
+                android:hint="@string/select_district"
+                app:errorEnabled="true"
+                android:id="@+id/districtError"
+                android:layout_marginTop="@dimen/dp_ten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerDistrict"
+                    android:imeOptions="actionNext"
+                    android:inputType="textAutoComplete"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_ten"
+                app:errorEnabled="true"
+                android:id="@+id/cityError"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapWords"
+                    android:imeOptions="actionNext"
+                    android:hint="@string/city_name"
+                    app:errorEnabled="true"
+                    android:id="@+id/cityName"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_ten"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty"
+                app:errorEnabled="true"
+                android:id="@+id/contactError">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/mobile_no"
+                    android:id="@+id/mobile"
+                    android:layout_marginTop="@dimen/dp_ten"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_ten"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty"
+                app:errorEnabled="true"
+                android:id="@+id/emailError">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email_id"
+                    android:id="@+id/email"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                app:boxCornerRadiusBottomEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusBottomStart="@dimen/dp_eighty"
+                app:boxCornerRadiusTopEnd="@dimen/dp_eighty"
+                app:boxCornerRadiusTopStart="@dimen/dp_eighty"
+                android:hint="@string/select_blood_group"
+                android:layout_marginTop="@dimen/dp_ten"
+                app:errorEnabled="true"
+                android:id="@+id/bloodError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/bloodGroup"
+                    android:inputType="textAutoComplete"
+                    android:imeOptions="actionDone"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Be A Blood Donar"
+                android:id="@+id/btnRegister"
+                android:layout_marginTop="@dimen/dp_ten"
+                android:layout_gravity="center"
+                app:cornerRadius="@dimen/dp_sixty"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <ProgressBar
+        android:layout_width="@dimen/dp_fifty"
+        android:layout_height="@dimen/dp_fifty"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/progress_bar_saving"/>
+
+</RelativeLayout>

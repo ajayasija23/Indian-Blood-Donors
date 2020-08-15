@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:id="@+id/linearLayoutLogo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp_twenty"
+            android:gravity="center"
+            android:transitionName="logo_subtitle"
+            android:text="@string/donate_blood"
+            android:fontFamily="@font/alfa_slab_one"
+            android:textColor="@color/colorPrimaryDark" />
+
+
+        <ImageView
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
+            android:layout_marginTop="@dimen/dp_ten"
+            android:layout_marginHorizontal="@dimen/dp_thirty"
+            android:padding="@dimen/dp_ten"
+            android:src="@drawable/blood_logo"
+            android:transitionName="blood_logo"
+            android:background="@drawable/spinner_bg_accent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight=".8"
+            android:gravity="center"
+            android:transitionName="logo_text"
+            android:text="@string/save_life"
+            android:fontFamily="@font/alfa_slab_one"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/verify_phone"
+        android:layout_below="@+id/linearLayoutLogo"
+        android:layout_marginTop="@dimen/dp_fifty"
+        android:layout_marginHorizontal="@dimen/dp_twenty"
+        android:paddingVertical="@dimen/dp_twenty">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verify_phone"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_thirty">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/otp"
+                android:id="@+id/Otp"
+                android:inputType="text"
+                android:imeOptions="actionNext"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify"
+            android:id="@+id/btnVerify"
+            android:layout_marginTop="@dimen/dp_ten"
+            android:layout_gravity="center"
+            app:cornerRadius="@dimen/dp_sixty"/>
+
+    </LinearLayout>
+    <ProgressBar
+        android:layout_width="@dimen/dp_fifty"
+        android:layout_height="@dimen/dp_fifty"
+        android:id="@+id/progress_bar"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_eighty"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linearLayoutLogo"
+        />
+
+</RelativeLayout>

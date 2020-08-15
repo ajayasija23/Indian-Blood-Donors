@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.codesgood.views.JustifiedTextView
+        android:id="@+id/tv_justified_paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_thirty"
+        android:padding="10dp"
+        android:text="@string/about_text"
+        android:layout_marginHorizontal="@dimen/dp_twenty"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/dp_16" />
+</RelativeLayout>
