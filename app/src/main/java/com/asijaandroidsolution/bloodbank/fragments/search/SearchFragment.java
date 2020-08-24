@@ -25,6 +25,10 @@ import com.asijaandroidsolution.bloodbank.fragments.search.presenter.SearchPrese
 import com.asijaandroidsolution.bloodbank.fragments.search.view.SearchView;
 import com.asijaandroidsolution.bloodbank.utils.Constants;
 import com.asijaandroidsolution.bloodbank.utils.StateAndDistrictList;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
@@ -46,6 +50,14 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding= FragmentSearchBinding.inflate(inflater,container,false);
         View view=binding.getRoot();
+
+        //implementing mobile ad
+        MobileAds.initialize(getActivity(),getActivity().getString(R.string.adunitid));
+
+        AdRequest adRequest=new AdRequest.Builder().build();
+        binding.adView.loadAd(adRequest);
+
+
         presenter=new SearchPresenterImpl(this);
         districtList=new ArrayList<String>();
         stateAndDistrictList=new StateAndDistrictList(getActivity());

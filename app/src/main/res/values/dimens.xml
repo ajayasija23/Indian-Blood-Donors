@@ -23,4 +23,5 @@
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_28">28dp</dimen>
     <dimen name="dp_90">90dp</dimen>
+    <dimen name="sp_84">84dp</dimen>
 </resources>

@@ -79,9 +79,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             donorPhoneNo=view.findViewById(R.id.donor_contact_no);
             donorEmail=view.findViewById(R.id.donor_email);
             noRecord=view.findViewById(R.id.no_record_found);
-            container=view.findViewById(R.id.record_container);
+           // container=view.findViewById(R.id.record_container);
             composeMail=view.findViewById(R.id.composeMail);
             dialPhone=view.findViewById(R.id.dialPhone);
+            container=view.findViewById(R.id.searchDataContainer);
 
             composeMail.setOnClickListener(this);
             dialPhone.setOnClickListener(this);

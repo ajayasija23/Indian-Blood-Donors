@@ -87,20 +87,6 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
                 datePickerDialog.show();
             }
         });
-        binding.dob.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean b) {
-                if(!b)
-                {
-                    validateAge();
-                }
-                else {
-                    binding.dob.setText(null);
-                    binding.dobEndIcon.setError(null);
-                    binding.dobEndIcon.setEndIconDrawable(R.drawable.ic_dob);
-                }
-            }
-        });
         binding.sppinerStates.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -124,14 +110,18 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 
     }
 
-    private void validateAge() {
+    private boolean validateAge() {
         int age= FrequentFunction.calculateAge(binding.dob.getText().toString());
-        if (age==-1)
+        if (age==-1) {
             binding.dobEndIcon.setError("Invalid age(DD-MM-YYYY)");
-        else if(age<18)
+            return false;
+        }
+        else if(age<18) {
             binding.dobEndIcon.setError("Age must be greater than 18");
-        else
-            binding.dobEndIcon.setError(null);
+
+            return false;
+        }
+        return true;
     }
 
     private void setBloodGroupList() {
@@ -230,6 +220,7 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
             binding.bloodError.setError("Please Select valid district");
             valid= false;
         }
+        valid=validateAge();
 
         return valid;
 
@@ -292,6 +283,9 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
                 case R.id.email:
                                     binding.emailError.setError(null);
                                     break;
+                case R.id.dob:
+                                    binding.dobEndIcon.setError(null);
+                                    break;
             }
         }
     }
@@ -306,6 +300,7 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void onFailure(String message) {
+        binding.progressBarSaving.setVisibility(View.GONE);
         Toast.makeText(getActivity(),message,Toast.LENGTH_LONG).show();
     }
 }
