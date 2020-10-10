@@ -1,5 +1,7 @@
 package com.asijaandroidsolution.bloodbank.activity.home;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -34,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
-    private String mDrawerTitles="Register Blood Donor";
+    private String mDrawerTitles="Register";
     private int mNavIndex=0;
     private Fragment fragment=new RegisterFragment();
     private Handler mHandler;
@@ -50,6 +52,49 @@ public class HomeActivity extends AppCompatActivity {
         settingUpNavView();
         loadFragment();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_item_three_dot,menu);
+        return true;
+    }
+
+    //option item selection listener
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.share:
+                share();
+                return true;
+            case R.id.rate_us:
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("market://details?id=" + this.getPackageName())));
+                } catch (android.content.ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://play.google.com/store/apps/details?id=" + this.getPackageName())));
+                }
+                return true;
+            case R.id.other_apps:
+                startActivity(new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://play.google.com/store/apps/developer?id=ASIJA")));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void share() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "http://play.google.com/store/apps/details?id="+this.getPackageName());
+        sendIntent.setType("text/html");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+    }
+
 
     private void settingUpNavView() {
         binding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

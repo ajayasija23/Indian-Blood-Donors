@@ -47,7 +47,10 @@
     <string name="donor_contact_no">Donor Contact No</string>
     <string name="soryy_no_record_found">Soryy!! No Record Found</string>
     <string name="about_text">We connect people to the blood  donors all over the country. Here People  can register their details with their blood group and help the people who need that blood group. People can find blood donors in their city, districts or state. Hence your one registration can save a life.</string>
-    <string name="adunitid">ca-app-pub-8127434234485566/5482443773</string>
+    <string name="adunitsearch">ca-app-pub-8127434234485566/4769311103</string>
+    <string name="privacy"><u>If you continue you will \n be agreed to our privacy policy</u></string>
+    <string name="rate_us">Rate Us</string>
+    <string name="our_other_apps">Our Other Apps</string>
 
 
     <!-- String array for Blood Groups-->

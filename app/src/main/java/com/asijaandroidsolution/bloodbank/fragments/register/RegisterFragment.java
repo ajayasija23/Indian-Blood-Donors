@@ -3,6 +3,7 @@ package com.asijaandroidsolution.bloodbank.fragments.register;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -100,6 +101,7 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
             }
         });
         binding.btnRegister.setOnClickListener(this);
+        binding.privacypolicy.setOnClickListener(this);
         binding.fullName.setOnFocusChangeListener(this);
         binding.sppinerStates.setOnFocusChangeListener(this);
         binding.spinnerDistrict.setOnFocusChangeListener(this);
@@ -152,8 +154,17 @@ public class RegisterFragment extends BaseFragment implements View.OnClickListen
                 binding.btnRegister.requestFocus();
                 registerUser();
                 break;
+            case R.id.privacypolicy:
+                browsePolicy();
+                break;
         }
 
+    }
+
+    private void browsePolicy() {
+        Uri uri = Uri.parse("https://privacypolicyindianblooddonors.blogspot.com/2020/08/privacy-policy.html"); // missing 'http://' will cause crashed
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
     private void registerUser() {

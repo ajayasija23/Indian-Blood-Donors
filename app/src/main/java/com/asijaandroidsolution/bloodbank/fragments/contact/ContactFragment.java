@@ -15,10 +15,13 @@ import com.asijaandroidsolution.bloodbank.R;
 import com.asijaandroidsolution.bloodbank.activity.BaseActivity;
 import com.asijaandroidsolution.bloodbank.databinding.FragmentContactBinding;
 import com.asijaandroidsolution.bloodbank.fragments.BaseFragment;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 
 public class ContactFragment extends BaseFragment implements View.OnClickListener {
     private FragmentContactBinding binding;
     BaseActivity baseActivity=new BaseActivity();
+    private AdView adView;
 
     @Nullable
     @Override
@@ -28,6 +31,15 @@ public class ContactFragment extends BaseFragment implements View.OnClickListene
         binding.emailAddress.setOnClickListener(this);
         binding.contactInfo.setOnClickListener(this);
         binding.alternateNo.setOnClickListener(this);
+
+        adView = new AdView(getActivity(),"304025074220898_304385857518153", AdSize.BANNER_HEIGHT_50);
+
+
+        // Add the ad view to your activity layout
+        binding.bannerContainerContact.addView(adView);
+
+        // Request an ad
+        adView.loadAd();
         return view;
 
     }

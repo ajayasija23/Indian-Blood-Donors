@@ -15,6 +15,7 @@ import com.asijaandroidsolution.bloodbank.R;
 import com.asijaandroidsolution.bloodbank.activity.BaseActivity;
 import com.asijaandroidsolution.bloodbank.activity.home.HomeActivity;
 import com.asijaandroidsolution.bloodbank.databinding.ActivitySplashBinding;
+import com.facebook.ads.AudienceNetworkAds;
 
 public class SplashActivity extends BaseActivity {
 
@@ -28,6 +29,7 @@ public class SplashActivity extends BaseActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        AudienceNetworkAds.initialize(this);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         logoAnim = AnimationUtils.loadAnimation(this, R.anim.logo_anim);
@@ -43,27 +45,6 @@ public class SplashActivity extends BaseActivity {
                 binding.textViewSubTitle.setVisibility(View.VISIBLE);
                 binding.textViewTitle.startAnimation(titleAnim);
                 binding.textViewSubTitle.startAnimation(titleAnim);
-                binding.textViewTitle.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                       Intent intent= new Intent(SplashActivity.this, HomeActivity.class);
-                        Pair[] pairs=new Pair[3];
-                        pairs[0]=new Pair<View,String>(binding.imageLogo,"blood_logo");
-                        pairs[1]=new Pair<View,String>(binding.textViewTitle,"logo_text");
-                        pairs[2]=new Pair<View,String>(binding.textViewSubTitle,"logo_text");
-
-
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                            ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(SplashActivity.this,pairs);
-                            startActivity(intent,options.toBundle());
-                            finish();
-
-                        }
-
-                        finish();
-
-                    }
-                },3000);
 
             }
         },2000);

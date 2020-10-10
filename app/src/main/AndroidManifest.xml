@@ -12,11 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.result.SearchResult"
-            android:theme="@style/SearchResultTheme"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".activity.home.HomeActivity"></activity>
         <activity
             android:name=".activity.home.HomeActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:label="@string/title_activity_main"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden"></activity>
         <activity
             android:name=".activity.verify.VerifyActivity"
             android:label="@string/title_activity_verify" />

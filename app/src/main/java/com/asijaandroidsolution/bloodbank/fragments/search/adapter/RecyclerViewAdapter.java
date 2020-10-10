@@ -108,7 +108,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Intent intent = new Intent (Intent.ACTION_SEND);
             intent.setType("message/rfc822");
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{donorEmail.getText().toString()});
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Blood Donation Help");
             intent.setPackage("com.google.android.gm");
             if (intent.resolveActivity(searchResult.getPackageManager())!=null)
                 searchResult.startActivity(intent);

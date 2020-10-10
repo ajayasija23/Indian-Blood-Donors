@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        android:background="#fff">
+        android:background="#fff"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:layout_above="@+id/linearLayoutBtn">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/dp_thirty"
-            android:layout_marginTop="@dimen/dp_ten"
-            android:layout_marginBottom="@dimen/dp_ten">
+            android:paddingHorizontal="@dimen/dp_30">
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -193,20 +193,33 @@
                     android:imeOptions="actionDone"/>
 
             </com.google.android.material.textfield.TextInputLayout>
-            
-            <com.google.android.material.button.MaterialButton
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Be A Blood Donar"
-                android:id="@+id/btnRegister"
-                android:layout_marginTop="@dimen/dp_ten"
                 android:layout_gravity="center"
-                app:cornerRadius="@dimen/dp_sixty"/>
-
-
+                android:text="@string/privacy"
+                android:id="@+id/privacypolicy"
+                android:gravity="center"/>
         </LinearLayout>
-
     </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:paddingVertical="@dimen/dp_five"
+        android:id="@+id/linearLayoutBtn">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Be A Blood Donar"
+            android:id="@+id/btnRegister"
+            android:layout_gravity="center"
+            app:cornerRadius="@dimen/dp_sixty"/>
+    </LinearLayout>
+
     <ProgressBar
         android:layout_width="@dimen/dp_fifty"
         android:layout_height="@dimen/dp_fifty"

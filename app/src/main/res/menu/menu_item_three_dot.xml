@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/share"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/ic_share"/>
+    <item android:id="@+id/logo"
+        android:title=""
+        app:showAsAction="always"
+        android:icon="@drawable/logo_bg_red"/>
+
+    <item android:id="@+id/rate_us"
+        android:title="@string/rate_us"
+        app:showAsAction="never"/>
+    <item android:id="@+id/other_apps"
+        android:title="@string/our_other_apps"
+        app:showAsAction="never"
+        android:icon="@android:drawable/ic_menu_share"/>
+
+</menu>

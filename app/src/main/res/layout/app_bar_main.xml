@@ -7,79 +7,33 @@
     tools:context=".activity.home.HomeActivity"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:background="@color/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"/>
+        <ImageView
+            android:id="@+id/image_logo"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:src="@drawable/blood_app_logo"
+            android:foregroundGravity="center"
+            android:background="@drawable/bg_logo"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/dp_40"
+            android:layout_marginTop="@dimen/dp_25"
+            android:padding="@dimen/dp_2"/>
 
-    </com.google.android.material.appbar.AppBarLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="3">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/dp_ten"
-                android:gravity="center"
-                android:transitionName="logo_subtitle"
-                android:text="@string/donate_blood"
-                android:fontFamily="@font/alfa_slab_one"
-                android:textColor="@color/colorPrimaryDark" />
-
-
-            <ImageView
-                android:id="@+id/image_logo"
-                android:layout_width="@dimen/dp_100"
-                android:layout_height="@dimen/dp_100"
-                android:layout_marginTop="@dimen/dp_ten"
-                android:layout_marginHorizontal="@dimen/dp_twenty"
-                android:padding="@dimen/dp_ten"
-                android:src="@drawable/blood_logo"
-                android:transitionName="blood_logo"
-                android:background="@drawable/spinner_bg_accent"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight=".8"
-                android:gravity="center"
-                android:transitionName="logo_text"
-                android:text="@string/save_life"
-                android:fontFamily="@font/alfa_slab_one"
-                android:textColor="@color/colorPrimaryDark" />
-        </LinearLayout>
-        <!--TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/logo_text"
-            android:transitionName="logo_text"
-            android:layout_marginTop="@dimen/dp_twenty"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/holo_red_dark"
-            android:gravity="center"/-->
-
-    </LinearLayout>
-
-    <FrameLayout android:layout_height="wrap_content"
+    <FrameLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:id="@+id/fragment_container">
-
     </FrameLayout>
 
 </LinearLayout>

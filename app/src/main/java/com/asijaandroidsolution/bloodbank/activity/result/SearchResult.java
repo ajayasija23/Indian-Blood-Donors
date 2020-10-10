@@ -29,6 +29,7 @@ public class SearchResult extends AppCompatActivity {
         binding = ActivitySearchResultBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        setSupportActionBar(binding.toolbarSearchResult.toolbar);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);
         binding.recyclerViewDonorsList.setLayoutManager(linearLayoutManager);
         DividerItemDecoration dividerItemDecoration=new DividerItemDecoration(this,linearLayoutManager.getOrientation());

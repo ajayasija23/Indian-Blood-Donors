@@ -2,7 +2,6 @@ package com.asijaandroidsolution.bloodbank.fragments.search;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +11,6 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.asijaandroidsolution.bloodbank.R;
 import com.asijaandroidsolution.bloodbank.activity.result.SearchResult;
@@ -25,13 +22,10 @@ import com.asijaandroidsolution.bloodbank.fragments.search.presenter.SearchPrese
 import com.asijaandroidsolution.bloodbank.fragments.search.view.SearchView;
 import com.asijaandroidsolution.bloodbank.utils.Constants;
 import com.asijaandroidsolution.bloodbank.utils.StateAndDistrictList;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -43,7 +37,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     private ArrayList<String> districtList;
     private ArrayList<String> bloodGroupList;
     private SearchPresenter presenter;
-    private RecyclerViewAdapter recyclerViewAdapter;
+    private AdView adView;
 
     @Nullable
     @Override
@@ -51,13 +45,7 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         binding= FragmentSearchBinding.inflate(inflater,container,false);
         View view=binding.getRoot();
 
-        //implementing mobile ad
-        MobileAds.initialize(getActivity(),getActivity().getString(R.string.adunitid));
-
-        AdRequest adRequest=new AdRequest.Builder().build();
-        binding.adView.loadAd(adRequest);
-
-
+       createFacebookAd();
         presenter=new SearchPresenterImpl(this);
         districtList=new ArrayList<String>();
         stateAndDistrictList=new StateAndDistrictList(getActivity());
@@ -69,6 +57,17 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         binding.bloodGroupSelect.setOnFocusChangeListener(this);
         binding.sppinerStatesSearch.setOnFocusChangeListener(this);
         return view;
+    }
+
+    private void createFacebookAd() {
+        adView = new AdView(getActivity(),"304025074220898_304032264220179",AdSize.BANNER_HEIGHT_50);
+
+
+        // Add the ad view to your activity layout
+        binding.bannerContainer.addView(adView);
+
+        // Request an ad
+        adView.loadAd();
     }
 
 

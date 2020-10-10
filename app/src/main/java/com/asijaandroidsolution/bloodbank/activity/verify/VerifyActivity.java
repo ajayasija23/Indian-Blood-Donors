@@ -34,10 +34,13 @@ public class VerifyActivity extends BaseActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         binding = ActivityVerifyBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
-        setContentView(view);
+        setSupportActionBar(binding.includeToolBars.toolbar);
         binding.btnVerify.setOnClickListener(this);
         phoneNo= getIntent().getStringExtra("phoneNo");
         sendVerificationCodetoUser();
+        getSupportActionBar().setTitle("Verify Mobile No");
+        binding.includeToolBars.toolbar.setTitleMarginStart(250);
+        setContentView(view);
     }
 
     private void sendVerificationCodetoUser() {
